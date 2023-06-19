@@ -20,7 +20,7 @@ In addition to the main features, the following bonus features have been impleme
 
 -   Pagination: Display multiple pages of search results, allowing users to navigate through the movie list.
 -   Sorting: Sort search results by different criteria, such as rating or release date.
--   Additional API Integration: Include movie ratings or reviews from a different API, if available.
+-   For Movie Ratings, I've relied on the IMDB rating from the OMDb API
 
 ## How to Run Locally
 
@@ -46,7 +46,7 @@ _Filter movies by movie genre._
 
 ## Demo
 
-You can also see a live demo of the web app at [https://example.com](https://example.com/).
+You can also see a live demo of the web app at [here](https://omdb-search-site.netlify.app/).
 
 ## Technologies Used
 
