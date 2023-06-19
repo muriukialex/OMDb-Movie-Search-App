@@ -1,38 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Movie Search Web App
 
-## Getting Started
+This is a movie search web application that allows users to search for movies and view details about each movie. The app fetches data from the OMDb API to retrieve movie information and presents the results in a visually appealing and responsive manner.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+-   Search: Enter a movie title in the search input field and click the search button to fetch movie data from the OMDb API.
+-   Movie Details: View additional information about a movie, such as plot summary, cast, genre, etc., by clicking the "View Details" button.
+-   Error Handling: Display a message if the API request fails or no results are found.
+-   Responsive Design: The web app is designed to look and function well on different screen sizes.
+-   Attractive User Interface: Styling elements such as typography, colors, and layout have been implemented to create an appealing UI.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Figma Designs
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+To view this application's figma designs, see [here](https://www.figma.com/file/1ZmjqONKzVaIGTSECqMgsI/Movie-Search-Application?type=design&node-id=0%3A1&t=jScQFcssX3guiNF6-1)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Bonus Features
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+In addition to the main features, the following bonus features have been implemented:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+-   Pagination: Display multiple pages of search results, allowing users to navigate through the movie list.
+-   Sorting: Sort search results by different criteria, such as rating or release date.
+-   Additional API Integration: Include movie ratings or reviews from a different API, if available.
 
-## Learn More
+## How to Run Locally
 
-To learn more about Next.js, take a look at the following resources:
+To run the application locally, follow these steps:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository: `git clone https://github.com/muriukialex/OMDb---Movie-Search-App.git`
+2. Install dependencies: `npm install`
+3. Obtain an API key from the OMDb API website: [http://www.omdbapi.com/](http://www.omdbapi.com/)
+4. Create a `.env.local` file in the root directory and add your API key: `NEXT_PUBLIC_API_KEY=<your-api-key>`
+5. Start the development server: `npm run dev`
+6. Open your web browser and visit: `http://localhost:3000`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Screenshots
 
-## Deploy on Vercel
+Here are some screenshots of the final web app:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![Screenshot 1](https://chat.openai.com/c/screenshots/screenshot1.png)
+_Enter a movie title and click the search button to fetch results._
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![Screenshot 2](https://chat.openai.com/c/screenshots/screenshot2.png)
+_View movie details and additional information._
+
+## Demo
+
+You can also see a live demo of the web app at [https://example.com](https://example.com/).
+
+## Technologies Used
+
+The following technologies were used to build this web app:
+
+-   HTML5 & CSS3
+-   JavaScript
+-   React.js
+-   NextJS
+-   OMDb API
+
+## Author
+
+-   [Alex Muriuki](https://github.com/muriukialex)
+
+## License
+
+This project is licensed under the [MIT License](https://chat.openai.com/c/LICENSE).
