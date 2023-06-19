@@ -3,7 +3,7 @@ import { ParamsType } from '@/types'
 
 interface fetcherProps {
 	url: string
-	params: ParamsType
+	params?: ParamsType
 }
 
 const fetcher = async ({ url, params }: fetcherProps) => {

@@ -53,7 +53,7 @@ const MovieCard = ({ imageAlt, imageSrc, title, releaseDate, buttonLink, movieGe
 					borderRadius={4}
 					width={40}
 					height={40}
-					href={buttonLink}
+					href={'details/' + buttonLink}
 				/>
 			</div>
 			<div className={styles.movieCard__Genre}>

@@ -5,15 +5,14 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import { FcSearch } from 'react-icons/fc'
 import { fetcher, defaultParams, years, movieTypes } from '@/utils'
+import { API_Endpoint } from '@/pages/api'
 import { MovieDetailsType, fetchSearchResultsProps, movieTypesType, MovieTypes } from '@/types'
-import MovieCard from '@/UI-common/MovieCard'
-
-const API_Endpoint = 'http://www.omdbapi.com/'
+import { MovieCard, LoadingBars } from '@/UI-common'
 
 const LandingPage = () => {
 	const { register, handleSubmit } = useForm<{ title: string }>()
 	const [searchText, setSearchText] = useState('')
-	const [loadingState, setLoadingState] = useState(false)
+	const [isLoading, setIsLoading] = useState(false)
 	const [searchResults, setSearchResults] = useState<
 		{ Search: []; totalResults: number; Response: boolean; Error?: string } | undefined
 	>()
@@ -23,7 +22,7 @@ const LandingPage = () => {
 	const [movieTypeState, setMovieTypeState] = useState<movieTypesType>(movieTypes)
 	const [apiError, setApiError] = useState<string | null>(null)
 	const fetchSearchResults = async ({ searchText, page, y, type }: fetchSearchResultsProps) => {
-		setLoadingState(true)
+		setIsLoading(true)
 		try {
 			const data = await fetcher({
 				url: API_Endpoint,
@@ -32,7 +31,7 @@ const LandingPage = () => {
 			return data || []
 		} catch (error: any | AxiosError) {
 			if (isAxiosError(error)) {
-				console.log('error.message: ', error)
+				console.error('error.message: ', error)
 				setApiError(error.message + ' : ' + error.response?.data.Error)
 			} else {
 				setApiError(JSON.stringify(error))
@@ -53,9 +52,10 @@ const LandingPage = () => {
 			.mutateAsync({ searchText: searchText, page: nextPage })
 			.then(data => {
 				setSearchResults(data)
+				setApiError(null)
 			})
 			.finally(() => {
-				setLoadingState(false)
+				setIsLoading(false)
 				handleScrollTop()
 			})
 	}
@@ -68,9 +68,10 @@ const LandingPage = () => {
 			.mutateAsync({ searchText: searchText, page: prevPage })
 			.then(data => {
 				setSearchResults(data)
+				setApiError(null)
 			})
 			.finally(() => {
-				setLoadingState(false)
+				setIsLoading(false)
 				handleScrollTop()
 			})
 	}
@@ -85,15 +86,17 @@ const LandingPage = () => {
 			.mutateAsync({ searchText: searchText, page: searchPage, y: selectedYear })
 			.then(data => {
 				setSearchResults(data)
+				setApiError(null)
 			})
 			.finally(() => {
-				setLoadingState(false)
+				setIsLoading(false)
 				handleScrollTop()
 			})
 	}
 
 	const handleMovieTypeChange = (type: MovieTypes) => {
 		const searchPage = 1
+		setCurrentPage(1)
 
 		const updatedMovieTypeState = movieTypeState.map(movieType => {
 			if (movieType.type === type) {
@@ -113,7 +116,7 @@ const LandingPage = () => {
 				setSearchResults(data)
 			})
 			.finally(() => {
-				setLoadingState(false)
+				setIsLoading(false)
 				handleScrollTop()
 			})
 	}
@@ -123,21 +126,20 @@ const LandingPage = () => {
 		setCurrentPage(searchPage)
 		setMovieTypeState(movieTypes)
 		const title = data.title
-		setLoadingState(true)
+		setIsLoading(true)
 		setSearchText(title)
 
 		searchMovies
 			.mutateAsync({ searchText: title, page: searchPage })
 			.then(data => {
 				setSearchResults(data)
-				console.log('data: ', data)
 			})
 			.catch(error => {
 				setApiError(error)
-				console.log('Error fetching search results:', error)
+				console.error('Error fetching search results:', error)
 			})
 			.finally(() => {
-				setLoadingState(false)
+				setIsLoading(false)
 			})
 	}
 
@@ -154,6 +156,7 @@ const LandingPage = () => {
 			</form>
 
 			<div>
+				{isLoading && <LoadingBars />}
 				<div className={styles.searchResults}>
 					{searchResults?.Search?.length && (
 						<>
