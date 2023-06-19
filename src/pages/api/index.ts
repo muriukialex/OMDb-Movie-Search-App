@@ -1,6 +1,6 @@
 import { fetcher, defaultParams } from '@/utils'
 
-export const API_Endpoint = 'http://www.omdbapi.com/'
+export const API_Endpoint = 'https://www.omdbapi.com/'
 
 export const getMovieDetails = async (slug: string | string[] | undefined) => {
 	try {
