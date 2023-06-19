@@ -63,4 +63,4 @@ The following technologies were used to build this web app:
 
 ## License
 
-This project is licensed under the [MIT License](https://chat.openai.com/c/LICENSE).
+This project is licensed under the [MIT License](https://opensource.org/license/mit/).
