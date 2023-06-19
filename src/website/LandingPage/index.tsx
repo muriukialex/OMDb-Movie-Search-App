@@ -10,7 +10,11 @@ import { MovieDetailsType, fetchSearchResultsProps, movieTypesType, MovieTypes }
 import { MovieCard, LoadingBars } from '@/UI-common'
 
 const LandingPage = () => {
-	const { register, handleSubmit } = useForm<{ title: string }>()
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<{ title: string }>()
 	const [searchText, setSearchText] = useState('')
 	const [isLoading, setIsLoading] = useState(false)
 	const [searchResults, setSearchResults] = useState<
@@ -122,6 +126,10 @@ const LandingPage = () => {
 	}
 
 	const handleSearchSubmit: SubmitHandler<{ title: string }> = async data => {
+		console.log('data: ', data)
+		if (!data.title) {
+			return
+		}
 		const searchPage = 1
 		setCurrentPage(searchPage)
 		setMovieTypeState(movieTypes)
@@ -147,11 +155,14 @@ const LandingPage = () => {
 		<div className={styles.container}>
 			<form className={styles.container__form} onSubmit={handleSubmit(handleSearchSubmit)}>
 				<input
-					{...register('title')}
+					{...register('title', { required: 'KIndly include a movie title' })}
 					type='text'
 					placeholder='Search for a movie title'
 					className={styles.container__form__input}
 				/>
+				{errors?.title?.type === 'required' && (
+					<span className={styles.container__form__input__errorMessage}>{errors.title?.message}</span>
+				)}
 				<input type='submit' value='Search' className={styles.container__form__submit} />
 			</form>
 

@@ -6,6 +6,11 @@
 	padding: 1.2rem;
 }
 
+.container__form__input__errorMessage {
+	font-size: 14px;
+	color: red;
+}
+
 .container__form__submit {
 	padding: 1.2rem;
 	cursor: pointer;
@@ -109,6 +114,11 @@
 
 	.container__form__input {
 		flex: 3;
+	}
+
+	.container__form__input__errorMessage {
+		position: absolute;
+		top: 210px;
 	}
 
 	.container__form__submit {
