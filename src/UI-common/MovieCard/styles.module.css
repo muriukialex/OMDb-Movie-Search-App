@@ -1,0 +1,50 @@
+.movieCard {
+	max-width: 352px;
+	border: 1px solid var(--color-grey);
+}
+
+.movieCard__Image {
+	min-width: 100%;
+}
+
+.movieCard__Details {
+	padding: 1rem;
+}
+
+.movieCard__Details__title {
+	color: var(--color-grey);
+	margin-bottom: 0.5rem;
+}
+
+.movieCard__Details__releaseDate {
+	margin-bottom: 3rem;
+}
+
+.movieCard__Details__title__text {
+	color: var(--color-black);
+}
+
+.movieCard__Genre {
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.movieCard__Genre__title {
+	color: var(--color-grey);
+}
+
+@media screen and (max-width: 735px) {
+	.movieCard {
+		width: 100%;
+		max-width: 100%;
+	}
+	.movieCard__Image {
+		text-align: center;
+	}
+	.movieCard__Image > img {
+		max-width: 275px;
+		height: auto;
+	}
+}

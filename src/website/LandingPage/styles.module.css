@@ -1,0 +1,158 @@
+.container__form {
+	padding: 4rem 0.25rem;
+}
+
+.container__form__input {
+	padding: 1.2rem;
+}
+
+.container__form__submit {
+	padding: 1.2rem;
+	cursor: pointer;
+}
+
+.searchResults {
+	display: flex;
+}
+
+.searchResults__filterBy {
+	min-width: 20%;
+}
+
+.searchResults__container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.pagination__container {
+	padding: 3rem 0rem;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 4rem;
+}
+.pagination__container > button {
+	border: 1px solid var(--color-grey);
+	border-radius: 4px;
+	padding: 0.5rem 0.5rem;
+	background: var(--color-white);
+}
+
+.pagination__container__prev {
+	cursor: pointer;
+}
+
+.pagination__container__next {
+	cursor: pointer;
+}
+
+.APIresponse {
+	display: flex;
+	align-items: center;
+	margin: auto;
+}
+
+.searchResults__filterBy {
+	padding: 1.2rem;
+}
+
+.searchResults__filterBy__title {
+	color: var(--color-grey);
+	margin-bottom: 1.5rem;
+}
+
+.searchResults__filterBy__year__title {
+	margin-bottom: 1rem;
+}
+
+.searchResults__filterBy__year > select {
+	border: 1px solid var(--color-grey);
+	padding: 0.5rem;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.searchResults__filterBy__movieType {
+	margin-top: 2rem;
+}
+
+.searchResults__filterBy__movieType__title {
+	margin-bottom: 1rem;
+}
+
+.searchResults__filterBy__movieType__container__item {
+	display: flex;
+	margin-top: 1rem;
+}
+
+.searchResults__filterBy__movieType__container__item > input[type='checkbox'] {
+	margin-right: 1rem;
+}
+
+.searchResults__filterBy__movieType__container__text {
+	color: var(--color-grey);
+}
+
+@media screen and (min-width: 925px) {
+	.searchResults__container {
+		justify-content: flex-end;
+		row-gap: 1rem;
+		column-gap: 2rem;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.container__form {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.container__form__input {
+		flex: 3;
+	}
+
+	.container__form__submit {
+		flex: 1;
+		border: 1px solid #cccccc;
+		border-radius: 4px;
+	}
+
+	.container__form__submit:hover {
+		background-color: #dfdcdc;
+	}
+
+	.container__form__submit > svg {
+		margin-right: 1rem;
+	}
+}
+
+@media screen and (max-width: 880px) {
+	.searchResults {
+		display: block;
+	}
+	.searchResults__container {
+		padding: 1rem;
+		justify-content: space-between;
+		row-gap: 1rem;
+	}
+	.pagination__container {
+		padding: 2rem;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.container__form {
+		padding: 1rem;
+	}
+	.container__form > input {
+		width: 100%;
+		text-align: left;
+		margin-bottom: 1rem;
+	}
+}
+
+@media screen and (max-width: 735px) {
+	.searchResults__container {
+		justify-content: center;
+	}
+}
