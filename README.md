@@ -37,11 +37,12 @@ To run the application locally, follow these steps:
 
 Here are some screenshots of the final web app:
 
-![Screenshot 1](https://chat.openai.com/c/screenshots/screenshot1.png)
+![Enter a movie title and click the search button to fetch result](https://res.cloudinary.com/deg3wfaev/image/upload/v1687174676/samples/Screenshot_2023-06-19_at_14.16.40_yioisk.png)
 _Enter a movie title and click the search button to fetch results._
 
-![Screenshot 2](https://chat.openai.com/c/screenshots/screenshot2.png)
-_View movie details and additional information._
+<img width="1327" alt="Screenshot 2023-06-19 at 15 14 37" src="https://github.com/muriukialex/OMDb-Movie-Search-App/assets/51236424/46daf731-0ac9-485e-92d2-fc778a4906d9">
+
+_Filter movies by movie genre._
 
 ## Demo
 
